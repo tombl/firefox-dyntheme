@@ -1,0 +1,14 @@
+{
+  "description": "Firefox dynamic theme reloader",
+  "homepage_url": "https://github.com/tombl/firefox-dyntheme",
+  "manifest_version": 2,
+  "name": "dyntheme",
+  "permissions": [
+    "nativeMessaging",
+    "theme"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "version": "1.0"
+}

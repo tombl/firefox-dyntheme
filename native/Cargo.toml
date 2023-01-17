@@ -1,0 +1,8 @@
+[package]
+name = "firefox_dyntheme"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.68"
+webextension-native-messaging = "1.0.1"
