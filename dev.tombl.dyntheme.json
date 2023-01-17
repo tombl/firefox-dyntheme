@@ -1,0 +1,7 @@
+{
+  "name": "dev.tombl.dyntheme",
+  "description": "firefox-dyntheme host",
+  "path": "/usr/libexec/firefox_dyntheme",
+  "type": "stdio",
+  "allowed_extensions": ["dyntheme@tombl.dev"]
+}
