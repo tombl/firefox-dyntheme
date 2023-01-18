@@ -5,7 +5,9 @@ themes.
 
 This is not for `userChrome.css`, just regular firefox themes.
 
-<!-- video -->
+
+https://user-images.githubusercontent.com/10044452/213215864-92a88c30-f8bd-4ee4-8c99-7b5ed9d97d2d.mp4
+
 
 ## Usage
 
