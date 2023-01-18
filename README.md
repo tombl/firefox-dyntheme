@@ -24,7 +24,7 @@ similar to reload.
 
 ## Installation
 
-### Arch
+### Arch Linux
 
 ```sh
 cd $(mktemp -d)
@@ -32,7 +32,16 @@ curl -LO https://raw.githubusercontent.com/tombl/firefox-dyntheme/main/pkg/PKGBU
 makepkg -si
 ```
 
-### Anything else
+### Other Linux
+- Head to [the latest release](https://github.com/tombl/firefox-dyntheme/releases/latest)
+- Click the xpi file to install the extension, and download the binary into `/usr/libexec`
+  - You can install it another directory if you change the `"path"` in the manifest.
+- Copy [the native manifest](./dev.tombl.dyntheme.json) into
+  [a valid location](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#manifest_location)
+  such as `/usr/lib/mozilla/native-messaging-hosts/dev.tombl.dyntheme.json`
+  or `~/.mozilla/native-messaging-hosts/dev.tombl.dyntheme.json`.
+
+### Other OS/build from source
 
 To build:
 
