@@ -21,6 +21,7 @@ jobs:
       - name: cargo build
         id: native-build
         run: cargo build --release
+        working-directory: ./native
 
       - name: web-ext build
         id: ext-build
