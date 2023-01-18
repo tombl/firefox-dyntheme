@@ -7,7 +7,6 @@ on:
 
 jobs:
   build:
-    name: build
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +19,7 @@ jobs:
 
       - name: cargo build
         id: native-build
-        run: cargo build --release
+        run: cargo build --release && echo "target=$PWD/target/release/firefox_dyntheme" >> $GITHUB_OUTPUT
         working-directory: ./native
 
       - name: web-ext build
@@ -29,6 +28,7 @@ jobs:
         with:
           cmd: build
           source: ext
+          filename: extension.xpi
 
       - name: web-ext sign
         id: ext-sign
@@ -39,12 +39,10 @@ jobs:
           channel: unlisted
           apiKey: ${{ secrets.AMO_SIGN_KEY }}
           apiSecret: ${{ secrets.AMO_SIGN_SECRET }}
-          timeout: 900000
+          timeout: 900000 # 15min
 
       - name: release
         uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: |
             ${{ steps.native-build.outputs.target }}
