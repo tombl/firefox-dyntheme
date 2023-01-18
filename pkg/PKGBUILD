@@ -1,6 +1,6 @@
 pkgname=firefox-dyntheme
-pkgver=1.0.0
-pkgrel=2
+pkgver=1.0.1
+pkgrel=1
 pkgdesc="Firefox dynamic theme reloader"
 arch=('any')
 url="https://github.com/tombl/firefox-dyntheme"
