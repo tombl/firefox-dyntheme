@@ -1,0 +1,30 @@
+pkgname=firefox-dyntheme
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Firefox dynamic theme reloader"
+arch=('any')
+url="https://github.com/tombl/firefox-dyntheme"
+license=('MIT')
+depends=('firefox')
+makedepends=('cargo' 'web-ext')
+source=("git+$url.git")
+sha256sums=('SKIP')
+
+build() {
+    cd "$srcdir/firefox-dyntheme/native"
+    cargo build --release
+
+    cd "$srcdir/firefox-dyntheme/ext"
+    web-ext build
+}
+
+package() {
+    cd "$srcdir"/firefox-dyntheme
+    install -Dm644 dev.tombl.dyntheme.json "$pkgdir"/usr/lib/mozilla/native-messaging-hosts/dev.tombl.dyntheme.json
+
+    cd "$srcdir"/firefox-dyntheme/native
+    install -Dm755 target/release/firefox_dyntheme "$pkgdir"/usr/libexec/firefox_dyntheme
+
+    cd "$srcdir"/firefox-dyntheme/ext
+    install -Dm644 web-ext-artifacts/*.zip "$pkgdir"/usr/lib/firefox/browser/extensions/dyntheme@tombl.dev.xpi
+}

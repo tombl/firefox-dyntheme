@@ -1,4 +1,4 @@
 /native/target
 /web-ext-artifacts
-/pkg
+/pkg/*
 !/pkg/PKGBUILD
